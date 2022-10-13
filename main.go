@@ -18,7 +18,7 @@ import (
 	"github.com/1996krishna/guessthisstagings/state"
 )
 
-const defaultPort = 8080
+const defaultPort = 9000
 
 func determinePort(portHTTPFlag int) int {
 	portHTTP := -1
