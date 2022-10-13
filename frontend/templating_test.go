@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"testing"
 
-	"github.com/1996krishna/guessthis_new/api"
-	"github.com/1996krishna/guessthis_new/game"
-	"github.com/1996krishna/guessthis_new/translations"
+	"github.com/1996krishna/guessthisstagings/api"
+	"github.com/1996krishna/guessthisstagings/game"
+	"github.com/1996krishna/guessthisstagings/translations"
 )
 
 func Test_templateLobbyPage(t *testing.T) {

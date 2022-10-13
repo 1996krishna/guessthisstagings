@@ -4,10 +4,10 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/1996krishna/guessthis_new/api"
-	"github.com/1996krishna/guessthis_new/game"
-	"github.com/1996krishna/guessthis_new/state"
-	"github.com/1996krishna/guessthis_new/translations"
+	"github.com/1996krishna/guessthisstagings/api"
+	"github.com/1996krishna/guessthisstagings/game"
+	"github.com/1996krishna/guessthisstagings/state"
+	"github.com/1996krishna/guessthisstagings/translations"
 )
 
 //This file contains the API for the official web client.

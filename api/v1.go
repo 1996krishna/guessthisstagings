@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/1996krishna/guessthis_new/game"
-	"github.com/1996krishna/guessthis_new/state"
+	"github.com/1996krishna/guessthisstagings/game"
+	"github.com/1996krishna/guessthisstagings/state"
 )
 
 //This file contains the API methods for the public API

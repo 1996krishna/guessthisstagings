@@ -13,9 +13,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/1996krishna/guessthis_new/api"
-	"github.com/1996krishna/guessthis_new/frontend"
-	"github.com/1996krishna/guessthis_new/state"
+	"github.com/1996krishna/guessthisstagings/api"
+	"github.com/1996krishna/guessthisstagings/frontend"
+	"github.com/1996krishna/guessthisstagings/state"
 )
 
 const defaultPort = 8080

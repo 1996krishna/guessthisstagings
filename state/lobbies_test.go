@@ -3,7 +3,7 @@ package state
 import (
 	"testing"
 
-	"github.com/1996krishna/guessthis_new/game"
+	"github.com/1996krishna/guessthisstagings/game"
 )
 
 func TestAddAndRemove(t *testing.T) {

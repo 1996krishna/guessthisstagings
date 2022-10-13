@@ -1,4 +1,4 @@
-module github.com/1996krishna/guessthis_new
+module github.com/1996krishna/guessthisstagings
 
 // +heroku goVersion go1.16
 go 1.16

@@ -13,7 +13,7 @@ import (
 	"time"
 	"unicode/utf8"
 
-	"github.com/1996krishna/guessthis_new/sanitize"
+	"github.com/1996krishna/guessthisstagings/sanitize"
 
 	discordemojimap "github.com/Bios-Marcel/discordemojimap/v2"
 	"github.com/agnivade/levenshtein"

@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/1996krishna/guessthis_new/game"
+	"github.com/1996krishna/guessthisstagings/game"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )
