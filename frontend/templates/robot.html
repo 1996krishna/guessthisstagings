@@ -1,0 +1,73 @@
+{{define "robot-page"}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Guesswhat - Join Lobby</title>
+    {{$description := (print "Space for up to " .MaxPlayers " players accross " .Rounds " rounds.") }}
+
+    <meta name="title" content="Pictionary - Join Lobby">
+    <meta name="description" content="{{$description}}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pictionary - Join Lobby">
+    <meta property="og:description" content="{{$description}}">
+    <meta property="og:image" content="{{.RootPath}}/resources/favicon.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Pictionary - Join Lobby">
+    <meta property="twitter:description" content="{{$description}}">
+    <meta property="twitter:image" content="{{.RootPath}}/resources/favicon.png">
+    {{template "font-decl" .}}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/base.css" />
+    <link rel="icon" type="image/png" href="{{.RootPath}}/resources/favicon.png" />
+
+    <style>
+        .error-title,
+        .error-message {
+            display: block;
+        }
+
+        .error-title {
+            font-size: 6rem;
+        }
+
+        .error-message {
+            font-size: 3rem;
+            margin: 2vw;
+        }
+
+        .go-back,
+        .go-back:link,
+        .go-back:visited {
+            display: block;
+            font-size: 2rem;
+            color: rgb(248, 148, 164);
+            text-align: center;
+            flex: 1 1;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-dark text-white p-1 text-center">
+            <h2>GUESSWHAT</h2>
+        </div>
+        <h1 class="error-title text-center mt-5">(◕︿◕✿)</h1>
+        <h2 class="error-message text-center mb-3">You can NOT join the lobby with this browser.</h2>
+        <a class="go-back text-white mt-3 mb-3" href="{{.RootPath}}/">Click here to get back to the Homepage</a>
+        {{template "footer" .}}
+    </div>
+
+    <script type="text/javascript" src="{{.RootPath}}/resources/jquery.min.js"></script>
+    <script type="text/javascript" src="{{.RootPath}}/resources/popper.min.js"></script>
+    <script type="text/javascript" src="{{.RootPath}}/resources/bootstrap.min.js"></script>
+
+</body>
+
+</html>
+{{end}}

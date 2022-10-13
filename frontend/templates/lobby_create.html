@@ -1,0 +1,172 @@
+{{define "lobby-create-page"}}
+<!DOCTYPE html>
+<html lang="{{.Locale}}">
+
+<head>
+    <title>Guesswhat</title>
+
+    <meta charset="UTF-8" />
+    {{template "font-decl" .}}
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/bootstrap.min.css">
+    <link rel="stylesheet" href="{{.RootPath}}/resources/fontawesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="{{.RootPath}}/resources/base.css" />
+
+    <link rel="icon" type="image/png" href="{{.RootPath}}/resources/favicon.png" />
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <noscript><span class="noscript">{{.Translation.Get "requires-js"}}</span></noscript>
+
+        <div class="row bg-dark text-white p-1 text-center font-two">
+            <h2>IT’S A MULTIPLAYER GUESSING GAME, BRING YOUR FRIENDS HAVE FUN!</h2>
+        </div>
+
+        <div class="lobby-container text-center mb-5">
+
+            <form id="lobby-create" role="form" class="form-horizontal" action="{{.RootPath}}/ssrCreateLobby" method="POST">
+
+                <div class="row my-5">
+                    <div class="col-md-4 offset-md-4 col-8 offset-2 bg-white p-3 text-center" id="create-lobby">
+
+                        <div id="carouselExampleControls" class="carousel slide text-center mb-4" data-interval="false">
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <img src="{{.RootPath}}/resources/character1.png" alt="character1">
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <img src="{{.RootPath}}/resources/character2.png" alt="character2">
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <img src="{{.RootPath}}/resources/character3.png" alt="character3">
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <img src="{{.RootPath}}/resources/character4.png" alt="character4">
+                                </div>
+
+                                <div class="carousel-item ">
+                                    <img src="{{.RootPath}}/resources/character5.png" alt="character5">
+                                </div>
+                            </div>
+
+                            <!-- Left and right controls -->
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev" style="filter: invert(100%);">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next" style="filter: invert(100%);">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+
+                            <input name="activeimage" id="activeimage" value="/resources/character1.png" hidden>
+
+                        </div>
+
+                        <input type="text" class="w-75 input-player-name text-center p-2 font-one" name="playername" value="player">
+
+                        <div class="row mt-4 mb-5 font-one">
+                            <div class="col-3 center-block">
+                                <div class="fw-normal lobby-parameter-label">{{.Translation.Get "rounds-setting"}}</div>
+                                <br>
+                                <input type="number" class="form-control p-1 w-100 mt-2 m-auto lobby-parameters" name="rounds" min="{{.MinRounds}}" max="{{.MaxRounds}}" value="{{.Rounds}}">
+                            </div>
+                            <div class="col-4 center-block">
+                                <div class="fw-normal lobby-parameter-label">{{.Translation.Get "drawing-time-setting"}}</div>
+                                <br>
+                                <input type="number" class="form-control p-1 w-100 mt-2 m-auto lobby-parameters" name="drawing_time" min="{{.MinDrawingTime}}" max="{{.MaxDrawingTime}}" value="{{.DrawingTime}}">
+                            </div>
+                            <div class="col-5 center-block">
+                                <div class="fw-normal lobby-parameter-label">{{.Translation.Get "word-language"}}</div>
+                                <br>
+                                <select class="form-select p-1 w-100 mt-2 m-auto lobby-parameters" name="language">
+                                    {{$language := .Language}}
+                                    {{range $k, $v := .Languages}}
+                                    <option value="{{$k}}" {{if eq $k $language}}selected="selected" {{end}}>{{$v}}</option>
+                                    {{end}}
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" form="lobby-create" name="login-submit" id="login-submit" class="btn create-room col-4 col-md-2">
+                    <h4 class="font-one">Make <br> Room</h4>
+                </button>
+
+            </form>
+        </div>
+
+        <div class="row text-center" id="footer-section">
+
+            <button id="btn-sound-home" class="btn-sound" onclick="toggleSound()" alt="{{.Translation.Get "toggle-soundeffects"}}" title="{{.Translation.Get "toggle-soundeffects"}}"><i id="sound-toggle-label" class="fas fa-volume-up"></i></button>
+
+            <h1 class="p-4 font-one">GUESSWHAT</h1>
+
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="{{.RootPath}}/resources/jquery.min.js"></script>
+    <script type="text/javascript" src="{{.RootPath}}/resources/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="{{.RootPath}}/resources/fontawesome.js"></script>
+
+    <script type="text/javascript">
+        const soundToggleLabel = document.getElementById("sound-toggle-label");
+        let sound = localStorage.getItem("sound") !== "false";
+        updateSoundIcon();
+
+        function toggleSound() {
+            sound = !sound;
+            localStorage.setItem("sound", sound.toString());
+            updateSoundIcon();
+        }
+
+        function updateSoundIcon() {
+            if (sound) {
+                soundToggleLabel.classList.remove("fa-volume-mute");
+                soundToggleLabel.classList.add("fa-volume-up");
+            } else {
+                soundToggleLabel.classList.add("fa-volume-mute");
+                soundToggleLabel.classList.remove("fa-volume-up");
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        var myCarousel = document.getElementById('carouselExampleControls');
+
+        var testimg = document.getElementById("activeimage");
+
+        myCarousel.addEventListener('slid.bs.carousel', function() {
+
+            var activeSlide = document.getElementsByClassName("carousel-item active");
+
+            var img = activeSlide[0].children[0];
+
+            testimg.value = img.getAttribute("src");
+        })
+
+    </script>
+
+
+</body>
+
+</html>
+{{end}}

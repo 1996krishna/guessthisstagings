@@ -1,0 +1,290 @@
+body {
+    font-family: 'Futura';
+    background-color: #573bd6;
+    padding: 0;
+}
+
+body,
+body::backdrop,
+body:fullscreen {
+    background-color: #573bd6;
+}
+
+@font-face {
+    font-family: "Futura";
+    src: url("futura.ttf");
+}
+
+@font-face {
+    font-family: "Futura Bold";
+    src: url("futura-bold.ttf");
+}
+
+@font-face {
+    font-family: "Monument";
+    src: url("monument.otf");
+}
+
+.font-one {
+    font-family: "Futura";
+}
+
+.font-one-bold {
+    font-family: "Futura Bold";
+}
+
+.font-two {
+    font-family: "Monument";
+}
+
+
+#create-lobby {
+    outline: 3px solid #000000;
+    box-shadow: 15px 10px #000000;
+}
+
+.input-player-name,
+.input-player-name:focus {
+    background-color: #fdffc3;
+    outline: none;
+    border: 1px solid #fff;
+    border-bottom: 2px solid #000000;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 25px;
+}
+
+.lobby-parameter-label {
+    height: 25px;
+}
+
+.lobby-parameters {
+    outline: 2px solid #000000;
+}
+
+.lobby-parameters:focus {
+    outline: 3px solid #000000;
+    border: none;
+}
+
+.create-room {
+    background-color: #ffe946;
+    margin-top: -120px;
+    outline: 3px solid #000000;
+    box-shadow: 10px 10px #000000;
+}
+
+#footer-section {
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-section h1 {
+    color: #ffffff;
+    background-color: #ffe946;
+    margin-bottom: -10px;
+    text-shadow: 4px 4px #000000;
+}
+
+/** LOBBY-WAIT PAGE **/
+
+#invite-section {
+    background-color: #ffb8d7;
+}
+
+.copy-link-group .col-12 {
+    margin-bottom: 10px;
+}
+
+.player-name {
+    font-weight: 200;
+    color: #ffffff;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+.start-game {
+    background-color: #ffe946;
+    outline: 3px solid #000000;
+    margin-top: 4rem;
+    box-shadow: 10px 10px #000000;
+}
+
+
+/** LOBBY PAGE **/
+
+#time-left {
+    color: #000000;
+    background-color: #ffe946;
+    width: 45px;
+    height: 40px;
+    box-shadow: 10px 5px #000000;
+}
+
+.error-list {
+    background-color: rgb(236, 93, 93);
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+
+
+.noscript {
+    display: flex;
+    font-size: 2.5rem;
+    font-weight: bold;
+    justify-content: center;
+    border-bottom: 1rem solid black;
+    padding: 10px;
+}
+
+.custom-check-or-radio {
+    /* Little hack in order to hide the original components of the check/radio button */
+    opacity: 0.0;
+    position: absolute;
+}
+
+
+kbd {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 20%), 0 2px 0 0 rgb(255 255 255 / 70%) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: 700;
+    line-height: 1;
+    padding: 2px 4px;
+    white-space: nowrap;
+}
+
+
+
+/* Custom */
+
+
+
+.btn-votekick {
+    background-color: #ffba00;
+    padding: 10px 40px 10px 40px;
+    border: solid 4px #000000;
+}
+
+
+.btn-sound {
+    width: 55px;
+    height: 55px;
+    background-color: #ffffff;
+    border-radius: 0;
+    font-size: 25px;
+    border: solid 4px black;
+    position: absolute;
+    box-shadow: 10px 5px #000000;
+}
+
+#btn-sound-home {
+    left: 20px;
+}
+
+.btn-sound i {
+    display: flex;
+    justify-content: center;
+}
+
+
+.invite-link {
+    background-color: #ffb8d7;
+}
+
+.link-to-home,
+.link-to-home:hover,
+.link-to-home:active,
+.link-to-home:visited {
+    color: #ffffff;
+    text-shadow: 4px 4px #000000;
+    text-decoration: none;
+}
+
+/* Order classes */
+
+.order-title {
+    order: 1 !important;
+    margin-bottom: 20px;
+}
+
+.order-word {
+    order: 2 !important;
+}
+
+.order-rounds {
+    order: 3 !important;
+}
+
+.order-leaderoard {
+    order: 4 !important;
+}
+
+.order-canvas {
+    order: 5 !important;
+}
+
+.order-chat {
+    order: 6 !important;
+}
+
+.order-votekick {
+    order: 7 !important;
+    text-align: left !important;
+}
+
+.order-sound {
+    order: 8 !important;
+    text-align: right !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .btn-sound {
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .order-title {
+        order: 1 !important;
+    }
+
+    .order-word {
+        order: 4 !important;
+    }
+
+    .order-rounds {
+        order: 2 !important;
+    }
+
+    .order-leaderoard {
+        order: 3 !important;
+    }
+
+    .order-canvas {
+        order: 5 !important;
+    }
+
+    .order-chat {
+        order: 6 !important;
+    }
+
+    .order-votekick {
+        order: 7 !important;
+    }
+
+    .order-sound {
+        order: 8 !important;
+    }
+}

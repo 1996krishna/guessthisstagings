@@ -1,0 +1,20 @@
+{{/* A little hack so we need don't to have CSS templates and embed those directly. */}}
+{{/* The reason being that we need to be able to define the RootPath here. */}}
+{{define "font-decl"}}
+<style>
+    @font-face {
+        font-family: 'Futura';
+        font-weight: normal;
+        src: local('Futura'),
+        url({{.RootPath}}/resources/futura medium bt.ttf);
+    }
+
+    @font-face {
+        font-family: 'Futura';
+        font-weight: bold;
+        src: local('Futura Bold'),
+        url({{.RootPath}}/resources/Futura Bold font.ttf);
+    }
+
+</style>
+{{end}}

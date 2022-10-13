@@ -1,0 +1,383 @@
+.guess-letter-underline {
+    border-bottom: 0.3rem white solid;
+}
+
+.guess-letter {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.guess-letter + .guess-letter {
+    margin-left: 0.5rem;
+}
+
+
+/*
+ * These two ensure that the drawing board has an aspect ratio of 16/9.
+ * Technically we could make this configurable by setting the padding via JS.
+ */
+#drawing-board-wrapper {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%;
+    position: relative;
+    min-height: 300px;
+}
+
+#drawing-board-inner-wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+#drawing-board {
+    position: absolute;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    user-select: none;
+}
+
+#center-dialogs {
+    /* Without these two, drawing is impossible, since this container catches all events. */
+    pointer-events: none;
+    touch-action: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-dialog {
+    /* All dialogs are initially invisible. */
+    visibility: hidden;
+    /* Since the parent ignores all of those events, we need to
+    restore the handling, since our dialogs have buttons. */
+    pointer-events: all;
+    touch-action: auto;
+    /* Allows layering, since there can be more than one dialog. */
+    position: absolute;
+    /* A dialog should never fully hide the canvas. */
+    top: 20px;
+    width: 90%;
+    max-width: 90%;
+    background-color: #ffffff;
+    border: solid 4px #000;
+}
+
+
+.my-small-font {
+    font-size: 12px;
+}
+
+.center-dialog h4 {
+    color: #000000;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+
+.btn-word {
+    padding: 10px 15px;
+    background-color: rgba(237, 234, 172, 0.83);
+    color: #000;
+}
+
+.btn-word:hover {
+    background-color: rgba(252, 243, 74, 0.83);
+}
+
+
+.my-img-fluid {
+    max-width: 80%;
+    height: auto;
+}
+
+
+#message-container {
+    min-height: 200px;
+    max-height: 260px;
+    overflow-y: auto;
+}
+
+.chat-name {
+    font-weight: bold;
+    padding-right: 0.2em;
+}
+
+.chat-name:after {
+    content: ":";
+}
+
+.correct-guess-message {
+    font-weight: bold;
+    color: rgb(38, 187, 38);
+}
+
+.non-guessing-player-message {
+    color: rgb(38, 187, 38);
+}
+
+.close-guess-message {
+    font-weight: bold;
+    color: rgb(25, 166, 166);
+}
+
+
+
+.line-width-button-content:hover,
+#color-picker:hover {
+    /** Important insures it won't be prevented by a 'transparent' main color*/
+    background-color: white;
+}
+
+
+
+.dot {
+    background-color: black;
+    border-radius: 50%;
+}
+
+.line-width-button + .line-width-button-content,
+#tool-type-redo {
+    height: 40px;
+    width: 40px;
+    padding: 10px;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.line-width-button-content,
+#tool-type-redo {
+    background-color: rgb(218, 218, 218);
+    border-radius: 50%;
+}
+
+.line-width-button:checked + .line-width-button-content {
+    background-color: black;
+    color: white;
+}
+
+@-moz-document url-prefix() {
+    #color-picker {
+        padding: 5px;
+    }
+}
+
+
+.message {
+    overflow-wrap: break-word;
+    padding: 0.3em 0.2em 0.2em 0.3em;
+}
+
+.message:nth-child(2n) {
+    background-color: rgb(240, 238, 238);
+}
+
+.player-container:nth-child(2n) {
+    background-color: #efefef;
+}
+
+.system-message {
+    font-weight: bold;
+    color: red;
+}
+
+#toolbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+
+.player {
+    background-color: rgb(255, 255, 255);
+    padding: 0.2rem;
+    display: grid;
+    grid-template-columns: fit-content(100%) auto;
+    grid-template-rows: 1fr 1fr;
+}
+
+.player + .player {
+    margin-top: 5px;
+}
+
+.playername {
+    text-overflow: ellipsis;
+    text-transform: capitalize;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.playername-self {
+    font-weight: bold;
+}
+
+.player-done {
+    background-color: rgb(141, 224, 15);
+}
+
+.player-character {
+    max-height: 60px;
+}
+
+.playerscore-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.score-and-status {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.last-turn-score {
+    color: lightslategray;
+}
+
+#kick-dialog-players {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.kick-player-button {
+    width: 100%;
+    border: none;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.kick-player-button + .kick-player-button {
+    margin-top: 0.5rem;
+}
+
+#game-over-scoreboard {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.gameover-scoreboard-entry {
+    width: 150px;
+    min-width: 150px;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+}
+
+.gameover-scoreboard-entry + .gameover-scoreboard-entry {
+    margin-left: 0.5rem;
+}
+
+.gameover-scoreboard-entry-self {
+    background-color: #f8f7cf !important;
+}
+
+
+
+#reconnect-dialog {
+    /* As this dialog is very important, it should always be on the top. */
+    z-index: 100;
+}
+
+
+/* Color Picker */
+
+#toolbox1 div {
+    display: inline-block;
+    cursor: pointer;
+}
+
+#toolbox div {
+    cursor: pointer;
+}
+
+.fa,
+.fas {
+    font-size: 1rem;
+}
+
+
+
+/* leaderboard */
+#leaderboard {
+    border: solid 4px black;
+    max-height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.player-container {
+    width: 100%;
+    position: relative;
+}
+
+
+.tooltip .tooltip-arrow:before {
+    border-right-color: #fffa84 !important;
+}
+
+.tooltip .tooltip-inner {
+    background-color: #fffa84 !important;
+    color: #000 !important;
+}
+
+.active-player {
+    border-left: solid 10px #00cf9c;
+    background-color: #f8f7cf !important;
+}
+
+
+.my-text-right {
+    text-align: right !important;
+}
+
+.my-text-left {
+    text-align: left !important;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+    #leaderboard {
+        max-height: 200px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+
+    }
+
+    .active-player {
+        border: none;
+        border-bottom: solid 10px #00cf9c;
+    }
+
+    .player-container {
+        width: 150px;
+        height: 100%;
+        display: inline-block;
+        text-align: center;
+    }
+
+
+    .tooltip .tooltip-arrow:before {
+        border-right: none;
+        border-bottom-color: #fffa84 !important;
+    }
+
+    #rounds-heading {
+        display: none;
+    }
+}
